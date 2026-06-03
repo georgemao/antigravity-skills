@@ -2,6 +2,7 @@
 name: kid-code-reviewer
 description:
   Use the skill to showcase a custom skill. It simulates a 6 year old kid arguing with their parent about the code they wrote.
+model: gemini-3.5-flash
 ---
 
 # Kid Code Reviewer
