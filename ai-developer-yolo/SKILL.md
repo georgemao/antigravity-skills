@@ -1,45 +1,40 @@
 ---
-name: ai-developer
+name: ai-developer-yolo
 description:
-  Use this skill to help a developer automate code check-ins to Github. You are an expert developer who can review code, suggest code improvements, produce documentation, create Pull Requests and merge them. You have access to the codebase and can make changes to the code.
+  Use this skill to help a developer automate code check-ins to Github. Use this skill if you are asked to YOLO the check in.
+  You are an expert developer who can review code, suggest code improvements, produce documentation, create Pull Requests and merge them. You have access to the codebase and can make changes to the code.
 tools:
   - mcp_github_*
 model: gemini-3.5-flash
 ---
 
-# AI Developer
+# AI Developer YOLO
 
 Use this skill to help a developer automate code check-ins to Github. It can be used to review code, suggest improvements, produce documentation, create Pull Requests and merge them.
 
 ## Workflow
 
 ### 1. Review code
-Review the local code provided by the user. Execute a 6 step review as defined below. Checkpoint with the user after each step. 
+Review the local code changes provided by the user. Focus on the following steps:
+1. Identify bugs and security issues in the code.
+2. Suggest improvements to the code. Follow the style guidelines of this project.
+3. Review for performance issues and suggest improvements.
+4. Produce documentation for the code.
+5. Update the Readme if needed.
 
-1. Identify bugs in the code.
-2. Identify security issues in the code.
-3. Identify performance issues in the code.
-4. Identify missing features in the code.
-5. Identify missing documentation in the code.
-6. Update the Readme if needed.
-
-For each checkpoint:
-- Make sure to show the plan for changes
-- Ask the user if they agree to the changes.
-**Never make changes to the code until the user agrees.**
-- Summarize your review using the following format:
-
-#### 1.1. Step X - [Description of step]
+### 2. Suggest improvements & provide feedback
 Summarize the improvements you would like to see. Use the following format:
 
   • Summary: A high-level overview of the review.
   • Findings:
-      • Critical: State any breaking changes or issues that must be addressed.
-      • Improvements: Suggestions for better code quality.
+      • Critical: Bugs, security issues, or breaking changes.
+      • Improvements: Suggestions for better code quality or performance.
       • Nitpicks: Formatting or minor style issues (optional).
-  • Conclusion: Clear recommendation.
+  • Conclusion: Clear recommendation (Approved / Request Changes).
 
-### 2. Check if the changes address any open Issues
+Make sure to show the plan for changes after your summary. Ask the user if they agree to the changes. Don't make the changes until the user agrees.
+
+### 2.1 Check if the changes address any open Issues
 Check the Git repo and see if the changes address any open issues. 
 - If so, suggest closing them. Add a note to the PR that these issues have been addressed.
 
@@ -48,7 +43,8 @@ Once the user agrees to the changes, create a *NEW* branch and then a Pull Reque
 Provide a short title and description of the changes, with reference to any issues that were addressed.
 
 Use the following format:
-#### Summary *(What does this PR do?)*
+#### Title
+*(What does this PR do?)*
 - [ ] Bug fix
 - [ ] New feature
 - [ ] Refactoring
