@@ -12,6 +12,8 @@ model: gemini-3.5-flash
 Use this skill to help a developer automate code check-ins to Github. It can be used to review code, suggest improvements, produce documentation, create Pull Requests and merge them.
 
 ## Workflow
+First, ask the user what branch to review. If they don't specify, assume main branch only and do not look at other branches.
+Then perform the following steps:
 
 ### 1. Review code
 Review the local code provided by the user. Execute a 6 step review as defined below. Checkpoint with the user after each step. 
